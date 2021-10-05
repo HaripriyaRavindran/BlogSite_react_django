@@ -1,0 +1,90 @@
+fieldset {
+    width: 30em;
+    border: 2px solid #9a1750 !important;
+    border-radius: inherit;
+    padding: 2em !important;
+    border-radius: 10px;
+  }
+  legend {  
+    float: none !important;
+    padding: 0 1em;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 24px !important;
+    width: 30% !important;
+    color: #5d001e;
+  }
+.logindiv{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: 8% 0;
+}
+.logincard{
+    width: 40%;
+    border-radius: 25px;
+    padding: 20px;
+}
+.logincard h2{
+    text-align: center;
+    animation: loginheader 2s infinite forwards;
+}
+.inputdiv{
+    padding: 10px;
+}
+.inputdiv input{
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid grey;
+    outline: none;   
+    border-radius: 4px;
+    padding: 0 10px;
+    color: #000;
+}
+.inputdiv label{
+    color: grey;
+}
+.buttondiv{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: 15px 0;
+}
+.readmore {
+    background-color: #5d001ee6 !important;
+    border: 1px solid #5d001e !important;
+    color: white !important;
+}
+.readmore:active, .readmore:focus, .readmore:focus:active {
+    outline: none;
+    box-shadow: none !important;
+}
+
+.readmore:hover {
+    background-color: transparent !important;
+    color: #5d001e !important;
+}
+form p{
+    text-align: center;
+}
+@keyframes loginheader {
+    0%{
+        color: red;
+    }
+    25%{
+        color: yellow;
+    }
+    50%{
+        color: green;
+    }
+    75%{
+        color: blue;
+    }
+    100%{
+        color: violet;
+    }
+  }

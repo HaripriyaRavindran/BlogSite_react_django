@@ -1,0 +1,30 @@
+.navbar{
+    transition: .6s ease;
+}
+.navbar-scroll{
+    box-shadow: 1px 1px 6px #8e7b7f;
+    background: linear-gradient(
+        180deg, white, #ffb4dbbd);
+}
+.color{
+    color: #5d001e !important;
+}
+.navbar-brand{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #5d001e !important;
+    font-size: 26px !important;
+}
+.navbar-brand span{
+    color: #9a1750;
+}
+.navbar-collapse{
+    font-size: 20px;
+}
+.login{
+    border: 1px solid #5d001e;
+    background-color: #5d001e;
+    color: #e3e2df !important;
+    padding: 3px 13px !important;
+}
+
