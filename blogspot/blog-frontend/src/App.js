@@ -81,8 +81,9 @@ function App() {
 
   return (
     <>   
-    <Navigation isLoggedIn = {isLoggedIn} logout={logoutHandler}/>
+    
       <Router>
+      <Navigation isLoggedIn = {isLoggedIn} logout={logoutHandler}/>
         <Switch>
             {!isLoggedIn && <Route exact path="/">
               <Landing/>
@@ -96,9 +97,7 @@ function App() {
             <Route path="/signup">
               <Signup onSignup={signupHandler} />
             </Route>
-            <Route path="/postblog">
-              <PostBlog />
-            </Route>
+            <Route path="/postblog" component={PostBlog}></Route>
             <Route path="/singleblog/:id" component={Singleblog}></Route>
             <Route path="/editblog/:id" component={EditBlog}></Route>
             { id && <Route path={path} >

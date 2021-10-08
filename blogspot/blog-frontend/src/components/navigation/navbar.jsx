@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useState, useEffect } from 'react';
 import './nav.css';
 import {Link, BrowserRouter as Router,} from 'react-router-dom';
-
+import {LinkContainer} from 'react-router-bootstrap';
 
 const Navigation=(props)=> {
 
@@ -27,18 +27,37 @@ const Navigation=(props)=> {
     return (
         <Navbar fixed="top" className={border}  collapseOnSelect expand="lg">
             <Container>
-            <Navbar.Brand href="/">Blog<span>spot</span></Navbar.Brand>
+            <Navbar.Brand>
+                <LinkContainer to="/">
+                    <Nav.Link>Blog<span>spot</span></Nav.Link>
+                </LinkContainer>  
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link className="color" href="/">Home</Nav.Link>
+                    <LinkContainer to="/">
+                        <Nav.Link className="color">Home</Nav.Link>
+                    </LinkContainer>
                 </Nav>
                 <Nav>
                 
-                {!isLoggedIn ? <Nav.Link className="color login" href="/login">Login</Nav.Link> : 
+                {!isLoggedIn ? 
+                    <Nav.Link >
+                        <LinkContainer className="color login" to="/login">
+                            <Nav.Link>Login</Nav.Link>
+                        </LinkContainer>
+                    </Nav.Link> : 
                 <NavDropdown title={profile} id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="/postblog">Post Blogs</NavDropdown.Item>
-                    <NavDropdown.Item href={path}>View Blogs</NavDropdown.Item>
+                    <NavDropdown.Item >
+                        <LinkContainer to="/postblog">
+                            <Nav.Link>Post Blogs</Nav.Link>
+                        </LinkContainer>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                        <LinkContainer to={path}>
+                            <Nav.Link>View Blogs</Nav.Link>
+                        </LinkContainer>
+                    </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={props.logout}>Logout</NavDropdown.Item>
                 </NavDropdown>
