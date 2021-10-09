@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import axios from 'axios';
 import styles from './index.module.css';
+import { Redirect } from 'react-router-dom';
 
 
 const PostBlog = (props) => {
@@ -15,7 +16,7 @@ const PostBlog = (props) => {
 
     useEffect(()=>{
         if(!localStorage.getItem("isLogin")){
-      window.location.href="/"
+            props.history.push("/")
     }
     })
 
@@ -37,7 +38,8 @@ const PostBlog = (props) => {
           .then((response) => {
             console.log(response);
             console.log(response.data);
-            window.location.href="../users/"+localStorage.getItem("id");
+            props.history.push("../users/"+localStorage.getItem("id"));
+            // window.location.href="../users/"+localStorage.getItem("id");
           }).catch(
             (error)=>{
                 console.log(error.response);
@@ -51,9 +53,13 @@ const PostBlog = (props) => {
                     }).catch(
                         (error)=>{
                             localStorage.clear()
-                            window.location.href = "/"
+                            props.history.push("/")
                         }
                     )
+                }
+                else{
+                    localStorage.clear()
+                    props.history.push("/")
                 }
             }
         )

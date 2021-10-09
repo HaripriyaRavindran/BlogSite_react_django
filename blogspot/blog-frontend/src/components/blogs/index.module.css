@@ -63,6 +63,7 @@ fieldset {
     background-image: url('../../images/image.jpg');
     background-color: #8e7b7f !important;
     background-blend-mode: luminosity;
+    min-width: 94% !important;
 }
 .card_title{
     font-weight: bold !important;

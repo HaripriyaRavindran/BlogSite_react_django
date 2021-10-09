@@ -40,7 +40,7 @@ const Home = (props)=> {
                     }).catch(
                         (error)=>{
                             localStorage.clear()
-                            window.location.href = "/"
+                            props.history.push("/")
                         }
                     )
                 }

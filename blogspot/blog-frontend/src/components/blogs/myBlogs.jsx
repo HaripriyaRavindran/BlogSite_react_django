@@ -10,7 +10,7 @@ const MyBlogs = (props)=> {
 
     useEffect(()=>{
         if(!localStorage.getItem("isLogin")){
-            window.location.href="/"
+            props.history.push("/")
           }
         var config = {
             method: 'get',

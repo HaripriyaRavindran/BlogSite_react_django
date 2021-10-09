@@ -20,6 +20,7 @@ const DisplayBlog = (props) => {
     props.blogs.map((value, index) => (
       <Col sm={1} md={6} lg={4} key={index} className={styles.div_center}>
         <Card className={styles.card}>
+            {/* <Card.Img variant="top" src="https://res.cloudinary.com/muhammederdem/image/upload/v1537132206/news-slider/background.jpg" /> */}
             <Card.Body className={styles.text_left}>
                 <div className={styles.display_height}>
                     <Card.Title className={styles.card_title}>{value.blog_name}</Card.Title>

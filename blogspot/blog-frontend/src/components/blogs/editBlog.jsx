@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { useState,useEffect } from 'react';
 import axios from 'axios';
 import styles from './index.module.css';
+import { Redirect } from 'react-router-dom';
 
 const PostBlog = (props) => {
     const [name , setName] = useState("");
@@ -14,7 +15,7 @@ const PostBlog = (props) => {
 
     useEffect(()=>{
         if(!localStorage.getItem("isLogin") ){
-            window.location.href="/"
+            props.history.push("/")
             }
         var config = {
             method: 'get',
@@ -42,7 +43,7 @@ const PostBlog = (props) => {
                     }).catch(
                         (error)=>{
                             localStorage.clear()
-                            window.location.href = "/"
+                            props.history.push("/")
                         }
                     )
                 }
@@ -62,14 +63,15 @@ const PostBlog = (props) => {
     }
     const putsubmit = (e) =>{
         
-            
+        e.preventDefault();
         axios
           .put("http://localhost:8000/blogs/blogapi/"+props.match.params.id, 
           { "user_id":localStorage.getItem("id"),"blog_name" : name, "blog_desc" : desc, "blog_content" : content},
           { headers: {'Authorization': 'Bearer '+localStorage.getItem('access')}}
           )
           .then((response) => {
-            window.location.href="../users/"+localStorage.getItem("id");
+            console.log("here");
+            props.history.push("../users/"+localStorage.getItem("id"));
           })    
         
     }

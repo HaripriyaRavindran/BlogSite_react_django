@@ -18,7 +18,7 @@ import Landing from './components/landing/landing';
 import Singleblog from './components/blogs/singleBlog';
 import EditBlog from './components/blogs/editBlog';
 
-function App() {
+function App(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(()=>{
@@ -44,7 +44,7 @@ function App() {
               localStorage.setItem('access',response.data.access);
               localStorage.setItem('refresh',response.data.refresh);
               setIsLoggedIn(true);
-              window.location.href="/"
+              window.location.href = "/"
             }
             else{
               alert(response.data.error)
@@ -61,7 +61,7 @@ function App() {
             console.log(response.data);
             if (response.data.success){
               alert(response.data.success)
-              window.location.href="/login"
+              window.location.href = "/login"
             }
             else{
               alert(response.data.error)
@@ -73,7 +73,7 @@ function App() {
   const logoutHandler = () => {
     localStorage.clear();
     setIsLoggedIn(false);
-    window.location.href="/"
+    window.location.href = "/"
   };
 
   const id = localStorage.getItem("id");
