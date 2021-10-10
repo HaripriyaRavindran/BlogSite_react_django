@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 
 class BlogSerializer(serializers.ModelSerializer):
     user_id = serializers.StringRelatedField()
-     
 
     class Meta:
         model = Blog

@@ -8,7 +8,6 @@ import styles from './index.module.css';
 const Home = (props)=> {
     const [blogs , setBlogs] = useState([])
 
-    const {isLoggedIn} = props
     const {isLogin, username, password, refresh } = localStorage
 
     useEffect(()=>{

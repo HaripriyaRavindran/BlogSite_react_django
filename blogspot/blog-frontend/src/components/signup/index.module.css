@@ -12,7 +12,7 @@ fieldset {
     text-transform: uppercase;
     font-weight: 800;
     font-size: 24px !important;
-    width: 30% !important;
+    width: fit-content !important;
     color: #5d001e;
   }
 .logindiv{

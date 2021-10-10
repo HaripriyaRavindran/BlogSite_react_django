@@ -27,6 +27,10 @@ class UserTable(APIView):
     def post(self,request, id=None):
         data = JSONParser().parse(request)
         userserializer = UserSerializer(data=data)
+        # try:
+        #     userserializer.run_validators(data)
+        # except Exception as e:
+        #     return Response({"Message":e.detail})
         if userserializer.is_valid():
             userserializer.save()
             return Response({"success": "Signed in succesfully"})

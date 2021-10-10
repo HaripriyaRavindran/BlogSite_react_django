@@ -5,10 +5,11 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useState, useEffect } from 'react';
 import './nav.css';
-import {Link, BrowserRouter as Router,} from 'react-router-dom';
 import {LinkContainer} from 'react-router-bootstrap';
+import { useSelector } from 'react-redux';
 
 const Navigation=(props)=> {
+    const isLogin = useSelector((state)=> state.isLogin)
 
     const isLoggedIn = props.isLoggedIn;
     const id = localStorage.getItem("id");
@@ -29,7 +30,7 @@ const Navigation=(props)=> {
             <Container>
             <Navbar.Brand>
                 <LinkContainer to="/">
-                    <Nav.Link>Blog<span>spot</span></Nav.Link>
+                    <Nav.Link>Blog<span>spot</span>{isLogin}</Nav.Link>
                 </LinkContainer>  
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />

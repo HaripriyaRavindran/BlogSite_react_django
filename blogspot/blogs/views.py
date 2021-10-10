@@ -39,7 +39,7 @@ class BlogModel(APIView):
             user_id = data['user_id']
             user = User.objects.get(pk=user_id)
             blog,created = Blog.objects.get_or_create(
-                user_id=request.user,
+                user_id=user,
                 blog_name = data["blog_name"],
                 blog_desc = data["blog_desc"],
                 blog_content = data["blog_content"],
