@@ -49,15 +49,6 @@ class BlogModel(APIView):
             return Response({"message":"Watchlist has this movie for you"})
         except Exception as e:
             return Response(e.detail)
-
-        data["user_id"] = User.objects.get(pk=data["user_id"])
-        print(data)
-        blogserializer = BlogSerializer(data=data)
-        if blogserializer.is_valid():
-            blogserializer.save()
-            return Response(blogserializer.data)
-        else:
-            return Response("Invalid data. Please try again!")
     
     def put(self,request,id=None):
         if id:
@@ -89,7 +80,6 @@ class UserBlog(APIView):
             try:
                 data = Blog.objects.filter(user_id=userid)
                 blogserializer = BlogSerializer(data, many= True)
-                print(blogserializer.data)
                 return Response(blogserializer.data)
             except Exception as e:
                 return Response(e)

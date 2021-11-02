@@ -92,7 +92,7 @@ function App(props) {
               <Home onLogout={logoutHandler} isLoggedIn={isLoggedIn}/>
             </Route>}
             <Route path="/login">
-            <Login onLogin={loginHandler} />
+              <Login onLogin={loginHandler} />
             </Route>
             <Route path="/signup">
               <Signup onSignup={signupHandler} />
