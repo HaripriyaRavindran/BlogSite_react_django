@@ -16,7 +16,7 @@ class UserSerializer(ModelSerializer):
         if value and User.objects.filter(email__exact=value).exists():
             raise ValidationError("This field must be unique.")
         regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-        if(re.match(regex, value)):
+        if(re.match(regex, value)==False):
             raise ValidationError("Enter a valid email address.")
         if len(value)==0:
             raise ValidationError("This field must not be blank.")
